@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanic Shop Services & Pricing | DUMAK</title>
+    <style>
+        :root {
+            --primary-color: #1a252f;
+            --accent-color: #f1c40f;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 3rem 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #bdc3c7;
+        }
+
+        .back-nav {
+            max-width: 1000px;
+            margin: 2rem auto 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 1rem auto 4rem auto;
+            padding: 0 1.5rem;
+            flex: 1;
+        }
+
+        /* Pricing Table Container */
+        .pricing-wrapper {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border-top: 5px solid var(--accent-color);
+            margin-bottom: 2.5rem;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background-color: #fcfcfd;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            padding: 1rem 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #fdfdfd;
+        }
+
+        .service-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .service-icon {
+            font-size: 1.3rem;
+        }
+
+        .service-desc {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .price-tag {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #2e7d32;
+            white-space: nowrap;
+        }
+
+        .estimated-time {
+            color: #64748b;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        /* Call To Action Panel */
+        .cta-box {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cta-box h2 {
+            margin-bottom: 0.75rem;
+            font-size: 1.75rem;
+        }
+
+        .cta-box p {
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #1a252f;
+            padding: 0.9rem 2.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+
+       .whatsapp-float {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 20px !important;
+    background-color: #25D366 !important;
+    border-radius: 50% !important;
+    width: 60px !important;
+    height: 60px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+    z-index: 99999 !important;
+    transition: transform 0.2s ease !important;
+    text-decoration: none !important;
+}
+
+.whatsapp-float:hover {
+    background-color: #20b358 !important;
+    transform: scale(1.08) !important;
+}
+
+.whatsapp-float svg {
+    width: 34px !important;
+    height: 34px !important;
+    fill: white !important;
+    display: block !important;
+}
+
+        .footer {
+            background-color: var(--primary-color);
+            color: #7f8c8d;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            margin-top: auto;
+            border-top: 1px solid #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h2>DUMAK MECHANIC SHOP</h2>
+        <p>Transparent Pricing & Premium Automotive Care</p>
+    </header>
+
+    <main class="container">
+        <div class="pricing-wrapper">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service Category</th>
+                            <th>Estimated Duration</th>
+                            <th>Starting Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Fully Validated Self-Contained Floating WhatsApp Asset -->
+<a class="whatsapp-float" href="https://wa.me" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp">
+    <svg xmlns="http://w3.org" viewBox="0 0 448 512">
+        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+</a>
+
+                        <!-- SERVICE 1 -->
+                        <tr>
+                            <td>
+                                <div class="service-name">
+                                    <span class="service-icon">🛢️</span>
+                                    <span>Synthetic Oil Change</span>
+                                </div>
+                                <div class="service-desc">Includes premium synthetic oil fluid swap, new filter replacement, and full vital fluid top-off.</div>
+                            </td>
+                            <td><span class="estimated-time">30 - 45 Mins</span></td>
+                            <td><span class="price-tag">$69.99</span></td>
+                        </tr>
+                        <!-- SERVICE 2 -->
+                        <tr>
+                            <td>
+                                <div class="service-name">
+                                    <span class="service-icon">🛑</span>
+                                    <span>Brake Pad Replacement</span>
+                                </div>
+                                <div class="service-desc">Front or rear axle brake pad tracking installation. Component inspection included.</div>
+                            </td>
+                            <td><span class="estimated-time">1 - 1.5 Hours</span></td>
+                            <td><span class="price-tag">$149.99</span></td>
+                        </tr>
+                        <!-- SERVICE 3 -->
+                        <tr>
+                            <td>
+                                <div class="service-name">
+                                    <span class="service-icon">💻</span>
+                                    <span>Computer Check Diagnostic</span>
+                                </div>
+                                <div class="service-desc">Full computer code scanner check engine light breakdown, sensor readings tracking, and mechanical test assessment.</div>
+                            </td>
+                            <td><span class="estimated-time">45 Mins</span></td>
+                            <td><span class="price-tag">$89.99</span></td>
+                        </tr>
+                                               <!-- SERVICE 4 -->
+                        <tr>
+                            <td>
+                                <div class="service-name">
+                                    <span class="service-icon">🔋</span>
+                                    <span>Battery Diagnostics &amp; Installation</span>
+                                </div>
+                                <div class="service-desc">Voltage load testing verification and replacement installation of a premium long-life backup battery unit.</div>
+                            </td>
+                            <td><span class="estimated-time">20 - 30 Mins</span></td>
+                            <td><span class="price-tag">$129.99</span></td>
+                        </tr>
+                        <!-- SERVICE 5: ENGINE SWAP -->
+                        <tr>
+                            <td>
+                                <div class="service-name">
+                                    <span class="service-icon">🚀</span>
+                                    <span>Engine Swap / Replacement</span>
+                                </div>
+                                <div class="service-desc">Complete removal of old engine block assembly and precision alignment drop installation of fresh replacement unit.</div>
+                            </td>
+                            <td><span class="estimated-time">2 - 4 Days</span></td>
+                            <td>
+                                <span class="price-tag" style="display: block; font-size: 1.1rem;">4-Cyl: $800.00</span>
+                                <span class="price-tag" style="display: block; font-size: 1.1rem; margin-top: 0.2rem;">V6: $1,000.00</span>
+                            </td>
+                        </tr>
+                        <!-- SERVICE 6: TRANSMISSION SWAP -->
+                        <tr>
+                            <td>
+                                <div class="service-name">
+                                    <span class="service-icon">⚙️</span>
+                                    <span>Transmission Swap</span>
+                                </div>
+                                <div class="service-desc">Complete gearbox transmission unit extraction, fluid flush line cleaning, and replacement synchronization mapping.</div>
+                            </td>
+                            <td><span class="estimated-time">1 - 2 Days</span></td>
+                            <td><span class="price-tag">From $600.00</span></td>
+                        </tr>
+                        <!-- SERVICE 7: ELECTRICAL DIAGNOSTICS -->
+                        <tr>
+                            <td>
+                                <div class="service-name">
+                                    <span class="service-icon">⚡</span>
+                                    <span>Electrical Diagnostics</span>
+                                </div>
+                                <div class="service-desc">Deep structural circuit tracking, blown fuse testing, wiring harness voltage inspection, and short circuit analysis.</div>
+                            </td>
+                            <td><span class="estimated-time">1.5 - 3 Hours</span></td>
+                            <td><span class="price-tag">$150.00</span></td>
+                        </tr>
+                        <!-- SERVICE 8: A/C SYSTEM RECHARGE -->
+                        <tr>
+                            <td>
+                                <div class="service-name">
+                                    <span class="service-icon">❄️</span>
+                                    <span>A/C System Recharge</span>
+                                </div>
+                                <div class="service-desc">Evacuation and recharge of the climate handling unit using verified refrigerant and leak system inspection.</div>
+                            </td>
+                            <td><span class="estimated-time">1 Hour</span></td>
+                            <td><span class="price-tag">$119.99</span></td>
+                        </tr>
+                        <!-- SERVICE 9: WHEEL ALIGNMENT -->
+                        <tr>
+                            <td>
+                                <div class="service-name">
+                                    <span class="service-icon">🔧</span>
+                                    <span>Wheel Alignment</span>
+                                </div>
+                                <div class="service-desc">Four-wheel tracking calibration assessment to ensure straight driving tracking and eliminate abnormal tire wear.</div>
+                            </td>
+                            <td><span class="estimated-time">1 Hour</span></td>
+                            <td><span class="price-tag">$99.99</span></td>
+                        </tr>
+                    </tbody>
